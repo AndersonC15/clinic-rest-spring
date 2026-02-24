@@ -1,0 +1,41 @@
+package com.anderson.api.infra.security;
+
+import com.anderson.api.domain.usuario.Usuario;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.util.Date;
+
+@Service
+public class TokenService {
+
+    @Value("${api.security.token.secret}")
+    private String secret;
+
+    public String generateToken(Usuario usuario){
+        try {
+            var algoritmo = Algorithm.HMAC256(secret);
+             return JWT.create()
+                    .withIssuer("API Voll.med")
+                     .withSubject(usuario.getLogin())
+                     .withExpiresAt(fechaExpiracion())
+                     .withAudience("API Voll.med")
+                    .sign(algoritmo);
+        } catch (JWTCreationException exception){
+            throw new RuntimeException("Error al crear el token JWT: "  + exception.getMessage());
+        }
+    }
+
+    private Instant fechaExpiracion() {
+        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-05:00"));
+    }
+}
+
