@@ -30,7 +30,7 @@ public class TokenService {
                      .withExpiresAt(fechaExpiracion())
                     .sign(algoritmo);
         } catch (JWTCreationException exception){
-            throw new RuntimeException("Error al crear el token JWT: "  + exception.getMessage());
+            throw new RuntimeException("Error al crear el token JWT: "  + exception);
         }
     }
 
