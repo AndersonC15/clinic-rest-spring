@@ -1,5 +1,6 @@
 package com.anderson.api.infra.exceptions;
 
+import com.anderson.api.domain.ValidacionException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,13 +47,18 @@ public class GestorDeErrores {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Acceso denegado");
     }
 
+    @ExceptionHandler(ValidacionException.class)  // ✅ Cambiado
+    public ResponseEntity tratarErrorDeValidacion(ValidacionException e) {
+        return ResponseEntity.badRequest().body(e.getMessage());
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity gestionarError500(Exception ex) {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " +ex.getLocalizedMessage());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + ex.getLocalizedMessage());
     }
 
     public record DatosErrorValidacion(String campo, String mensaje) {
-        public DatosErrorValidacion(FieldError error){
+        public DatosErrorValidacion(FieldError error) {
             this(error.getField(), error.getDefaultMessage());
         }
     }

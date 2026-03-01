@@ -10,4 +10,7 @@ public record DatosDetalleConsulta(
         @JsonAlias({"id_Paciente", "Paciente_id", "id-paciente", "id-Paciente"}) Long idPaciente,
         @JsonAlias({"Fecha"}) LocalDateTime fecha
         ) {
+    public DatosDetalleConsulta(Consulta consulta) {
+        this(consulta.getId(), consulta.getMedico().getId(), consulta.getPaciente().getId(), consulta.getFecha());
+    }
 }
