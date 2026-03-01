@@ -1,5 +1,6 @@
 package com.anderson.api.domain.consulta;
 
+import com.anderson.api.domain.medico.Especialidad;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -10,6 +11,7 @@ public record DatosReservaConsulta(
         Long idPaciente,
         @NotNull
         @Future //Significa que no puede ser una fecha anterior a la actual
-        LocalDateTime fecha
+        LocalDateTime fecha,
+        Especialidad especialidad
         ) {
 }
