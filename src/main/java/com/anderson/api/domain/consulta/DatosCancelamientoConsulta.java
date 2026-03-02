@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record DatosCancelamientoConsulta(
         @NotNull
-        @JsonAlias({"id_Consulta", "IdConsulta", "id-consulta"}) Long idConsulta,
+        @JsonAlias({"id_Consulta", "id-consulta"}) Long idConsulta,
         @NotNull
 
         @JsonAlias({"Motivo_Cancelamiento"}) MotivoCancelamiento motivo) {
