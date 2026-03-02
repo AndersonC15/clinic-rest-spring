@@ -1,10 +1,12 @@
 package com.anderson.api.domain.consulta;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotNull;
 
 public record DatosCancelamientoConsulta(
         @NotNull
-        Long idConsulta,
+        @JsonAlias({"id_Consulta", "IdConsulta", "id-consulta"}) Long idConsulta,
         @NotNull
-        MotivoCancelamiento motivo) {
+
+        @JsonAlias({"Motivo_Cancelamiento"}) MotivoCancelamiento motivo) {
 }

@@ -4,4 +4,5 @@ import com.anderson.api.domain.consulta.DatosCancelamientoConsulta;
 
 public interface ValidadorCancelamientoDeConsulta {
     void validar(DatosCancelamientoConsulta datos);
+
 }
