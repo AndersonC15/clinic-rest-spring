@@ -12,6 +12,7 @@ public class OperacionesAritmeticas {
         String hola = "     ";
 
 
+
         System.out.println(hola.isBlank() || hola.isEmpty());
     }
 }
