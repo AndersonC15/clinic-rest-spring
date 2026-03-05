@@ -19,7 +19,5 @@ public class ValidacionConsultaConAnticipacion implements ValidadorDeConsultas {
         if(diferenciaEnMinutos < 30){
             throw new ValidacionException("Horario seleccionado menor que 30 minutos de anticipacion");
         }
-
-
     }
 }

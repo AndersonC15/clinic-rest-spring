@@ -20,7 +20,5 @@ public class ValidarPacienteSinOtraConsultaEnElMismoDia implements ValidadorDeCo
         if(pacienteTieneOtraConsulta){
             throw new ValidacionException("Paciente ya tiene una consulta reservada para ese dia.");
         }
-
     }
-
 }

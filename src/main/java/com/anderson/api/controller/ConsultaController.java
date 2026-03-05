@@ -28,5 +28,4 @@ public class ConsultaController {
         reserva.cancelar(datos);
         return ResponseEntity.noContent().build();
     }
-
 }
