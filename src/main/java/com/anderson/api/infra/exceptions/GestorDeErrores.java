@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GestorDeErrores {
 
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity getionarError404() {
+    public ResponseEntity gestionarError404() {
         return ResponseEntity.notFound().build();
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity getionarError400(MethodArgumentNotValidException ex) {
+    public ResponseEntity gestionarError400(MethodArgumentNotValidException ex) {
         var errores = ex.getFieldErrors();
         return ResponseEntity.badRequest().body(errores.stream().map(DatosErrorValidacion::new).toList());
     }

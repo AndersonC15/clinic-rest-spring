@@ -2,6 +2,7 @@ package com.anderson.api.controller;
 
 import com.anderson.api.domain.paciente.*;
 import jakarta.validation.Valid;
+import org.jspecify.annotations.NullMarked;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,7 +39,7 @@ public class PacienteController {
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DatosActualizacionPaciente datos) {
         var paciente = repository.getReferenceById(datos.id());
-        paciente.atualizarInformacion(datos);
+        paciente.actualizerInformacion(datos);
 
         return ResponseEntity.ok(new DatosDetallePaciente(paciente));
     }

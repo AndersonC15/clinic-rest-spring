@@ -51,6 +51,5 @@ public class Direccion {
         if(datos.estado() != null) {
             this.estado = datos.estado();
         }
-
     }
 }

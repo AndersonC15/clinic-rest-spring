@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 
-
 public class Medico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
