@@ -27,7 +27,6 @@ public class GestorDeErrores {
         return ResponseEntity.badRequest().body(errores.stream().map(DatosErrorValidacion::new).toList());
     }
 
-
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity gestionarError400(HttpMessageNotReadableException ex) {
         return ResponseEntity.badRequest().body(ex.getMessage());
