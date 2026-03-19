@@ -29,8 +29,7 @@ public class ReservaDeConsultas {
     private List<ValidadorCancelamientoDeConsulta> validadoresCancelamiento;
 
     public DatosDetalleConsulta reservar(DatosReservaConsulta datos){
-
-
+        
         if(!pacienteRepository.existsById(datos.idPaciente())){
             throw new ValidacionException("No existe un paciente con este ID");
         }

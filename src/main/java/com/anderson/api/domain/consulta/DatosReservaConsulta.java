@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 public record DatosReservaConsulta(
+        @NotNull
         @JsonAlias({"id-Medico", "IdMedico", "id_Medico"}) Long idMedico,
         @NotNull
         @JsonAlias({"id-paciente", "IdPaciente", "id_Paciente"}) Long idPaciente,

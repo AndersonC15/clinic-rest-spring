@@ -12,7 +12,8 @@ public record DatosDetalleMedico(
         Direccion direccion
 ) {
     public DatosDetalleMedico(Medico medico){
-        this(   medico.getId(),
+        this(
+                medico.getId(),
                 medico.getNombre(),
                 medico.getEmail(),
                 medico.getDocumento(),

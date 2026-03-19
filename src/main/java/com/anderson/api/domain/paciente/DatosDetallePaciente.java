@@ -2,8 +2,13 @@ package com.anderson.api.domain.paciente;
 
 import com.anderson.api.domain.direccion.Direccion;
 
-public record DatosDetallePaciente(String nombre, String email, String telefono, String documentoIdentidad, Direccion direccion) {
-
+public record DatosDetallePaciente(
+        String nombre,
+        String email,
+        String telefono,
+        String documentoIdentidad,
+        Direccion direccion
+) {
     public DatosDetallePaciente(Paciente paciente) {
         this(
                 paciente.getNombre(),
